@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.glossaryofindustry.mappers.FieldsMapper">
+    <resultMap type="com.example.glossaryofindustry.domains.Fields" id="FieldsResultMap">
+        <result property="fieldId" column="field_id" />
+        <result property="fieldName" column="field_name" />
+        <result property="createUser" column="create_user" />
+        <result property="createDateTime" column="create_date_time" />
+        <result property="updateUser" column="update_user" />
+        <result property="updateDateTime" column="update_date_time" />
+        <result property="updateNo" column="update_no" />
+    </resultMap>
+    <select id="all" resultMap="FieldsResultMap">
+        SELECT * FROM fields
+    </select>
+</mapper>

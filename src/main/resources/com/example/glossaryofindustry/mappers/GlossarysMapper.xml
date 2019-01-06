@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.glossaryofindustry.mappers.GlossarysMapper">
+    <resultMap type="com.example.glossaryofindustry.domains.Glossarys" id="glossarysResultMap">
+        <result property="glossaryId" column="glossary_id" />
+        <result property="terminology" column="terminology" />
+        <result property="fieldDiv" column="field_div" />
+        <result property="fieldChildDiv" column="field_child_div" />
+        <result property="wordDescription" column="word_description" />
+        <result property="comentFlg" column="coment_flg" />
+        <result property="createUser" column="create_user" />
+        <result property="createDateTime" column="create_date_time" />
+        <result property="updateUser" column="update_user" />
+        <result property="updateDateTime" column="update_date_time" />
+        <result property="updateNo" column="update_no" />
+    </resultMap>
+    <select id="all" resultMap="glossarysResultMap">
+        SELECT * FROM glossarys
+    </select>
+</mapper>

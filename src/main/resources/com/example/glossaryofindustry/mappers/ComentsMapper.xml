@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.glossaryofindustry.mappers.ComentsMapper">
+    <resultMap type="com.example.glossaryofindustry.domains.Comments" id="commentsResultMap">
+        <result property="glossarysId" column="glossarys_id" />
+        <result property="comment" column="comment" />
+        <result property="createUser" column="create_user" />
+        <result property="createDateTime" column="create_date_time" />
+        <result property="updateUser" column="update_user" />
+        <result property="updateDateTime" column="update_date_time" />
+        <result property="updateNo" column="update_no" />
+    </resultMap>
+    <select id="all" resultMap="commentsResultMap">
+        SELECT * FROM coments
+    </select>
+</mapper>

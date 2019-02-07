@@ -3,30 +3,20 @@ package com.example.glossaryofindustry.container;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WebResponseResult {
+public class WebResponseResult<T extends WebResponseForm> {
 
-    private WebResponseForm responseForm;
+    private T responseForm;
     private List<String> infoMessageList = new ArrayList<>();
     private List<String> errMessageList = new ArrayList<>();
-    private String className;
 
-    public WebResponseResult(String className) {
-        this.className = className;
-    }
-
-    public String getClassName() {
-        return className;
-    }
-
-    public void setClassName(String className) {
-        this.className = className;
-    }
+    /** テンプレート名 */
+    private String templateName;
 
     public WebResponseForm getResponseForm() {
         return responseForm;
     }
 
-    public void setResponseForm(WebResponseForm responseForm) {
+    public void setResponseForm(T responseForm) {
         this.responseForm = responseForm;
     }
 
@@ -44,6 +34,14 @@ public class WebResponseResult {
 
     public void setErrMessageList(List<String> errMessageList) {
         this.errMessageList = errMessageList;
+    }
+
+    public String getTemplateName() {
+        return templateName;
+    }
+
+    public void setTemplateName(String templateName) {
+        this.templateName = templateName;
     }
 
 }

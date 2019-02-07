@@ -7,8 +7,8 @@ public class Comments extends DomainBase {
     private int glossarysId;
     private String comment;
 
-    public Comments(String createUser, Date createDateTime, String updateUser, Date updateDateTime, int updateNo,
-            int glossarysId, String comment) {
+    public Comments(int glossarysId, String comment, String createUser, Date createDateTime, String updateUser,
+            Date updateDateTime, int updateNo) {
         super(createUser, createDateTime, updateUser, updateDateTime, updateNo);
         this.glossarysId = glossarysId;
         this.comment = comment;

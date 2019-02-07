@@ -17,4 +17,49 @@
     <select id="all" resultMap="glossarysResultMap">
         SELECT * FROM glossarys
     </select>
+    <select id="findBySearchCondition" resultMap="glossarysResultMap">
+        SELECT
+            *
+        FROM
+            glossarys
+        <where>
+            <if test="searchCondition.idList.size() > 0">
+                <foreach item="id" index="index" collection="searchCondition.idList" open="(" separator="," close=")">
+                    glossary_id IN #{searchCondition.idList}
+                </foreach>
+            </if>
+            <if test="searchCondition.terminology != null">
+                AND
+                    terminology = #{searchCondition.terminology}
+            </if>
+            <if test="searchCondition.fieldDiv != 0">
+                AND
+                    field_div = #{searchCondition.fieldDiv}
+            </if>
+            <if test="searchCondition.fieldChildDiv != 0">
+                AND
+                    field_child_div = #{searchCondition.fieldChildDiv}
+            </if>
+        </where>
+    </select>
+    <insert id="addGlossarys">
+        INSERT INTO glossarys(
+            field_div,
+            field_child_div,
+            terminology,
+            word_description,
+            create_user,
+            coment_flg,
+            update_no
+        ) 
+        VALUES(
+        1,
+        #{fieldChildId},
+        #{terminology},
+        #{desc},
+        'unknwon',
+        FALSE,
+        1
+        )
+    </insert>
 </mapper>

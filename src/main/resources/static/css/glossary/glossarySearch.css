@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+td {
+    word-break: break-all;
+}
+td.terminology {
+  width: 15%;
+  text-align:center;
+  border-right-style: double;
+}
+tr.table-active:nth-child(odd) td.terminology {
+  background-color: #ffffff;
+}
+td.description {
+  width: 84%;
+  text-align: left;
+}
+tr.table-active:nth-child(even) td.description {
+  background-color: #ffffff;
+}
+tr.addform.hidden {
+  display: none;    
+}
+input.inline {
+  display: inline-box;
+}

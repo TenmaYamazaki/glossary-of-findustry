@@ -11,9 +11,9 @@ public class Glossarys extends DomainBase {
     private String wordDescription;
     private Boolean comentFlg;
 
-    public Glossarys(String createUser, Date createDateTime, String updateUser, Date updateDateTime, int updateNo,
-            int glossaryId, String terminology, int fieldDiv, int fieldChildDiv, String wordDescription,
-            Boolean comentFlg) {
+    public Glossarys(int glossaryId, String terminology, int fieldDiv, int fieldChildDiv, String wordDescription,
+            Boolean comentFlg, String createUser, Date createDateTime, String updateUser, Date updateDateTime,
+            int updateNo) {
         super(createUser, createDateTime, updateUser, updateDateTime, updateNo);
         this.glossaryId = glossaryId;
         this.terminology = terminology;

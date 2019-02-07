@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.glossaryofindustry.mappers.ComentsMapper">
+<mapper namespace="com.example.glossaryofindustry.mappers.CommentsMapper">
     <resultMap type="com.example.glossaryofindustry.domains.Comments" id="commentsResultMap">
         <result property="glossarysId" column="glossarys_id" />
         <result property="comment" column="comment" />
@@ -11,6 +11,14 @@
         <result property="updateNo" column="update_no" />
     </resultMap>
     <select id="all" resultMap="commentsResultMap">
-        SELECT * FROM coments
+        SELECT * FROM comments
+    </select>
+    <select id="findById" resultMap="commentsResultMap">
+        SELECT
+            *
+        FROM
+            comments
+        WHERE
+            glossarys_id = #{id}
     </select>
 </mapper>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Demo</title>
+        <link href="../static/css/commons/main.css" th:href="@{/css/common/main.css}" rel="stylesheet" />
+        <link href="../static/css/glossary" th:href="@{/css/glossary/glossarysearch.css}" rel="stylesheet" />
+        <link th:replace="include/bootstrap"></link>
+        <script th:src="@{/script/js/pages/glossarysearch/glossarysearch.js}"></script>
+    </head>
+    <body>
+        <div id="header " th:replace="include/header"></div>
+        <div class="main">
+            <div id="menu" th:include="include/menu"></div>
+              <section class="contents-box bg-contentsbox">
+                  <form class="" th:action="@{/glossary/add}" method="POST">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>用語</th>
+                        <th>説明</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="table-active" th:each="record : ${form.getRecordList()}">
+                        <td class="terminology" th:text="${record.terminology}"></td>
+                        <td class="description white" th:text="${record.wordDescription}"></td>
+                      </tr>
+                    </tbody>
+                    <tr class="table-active addform hidden">
+                      <td class="terminology">
+                        <input name="addTerminology" class="form-control" type="text">
+                      </td>
+                      <td class="description">
+                       <div class="form-group">
+                         <textarea name="addDesc" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                       </div>
+                        <input class="inline" type="submit" value="登録">
+                      </td>
+                    </tr>
+                  </table>
+                  <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                    <label class="custom-control-label addswitch" for="customSwitch1">追加フォーム</label>
+                  </div>
+                </form>
+			</section>
+        </div>
+    </body>
+</html>

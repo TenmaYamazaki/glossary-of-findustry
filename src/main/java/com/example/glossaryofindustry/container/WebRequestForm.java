@@ -1,5 +1,8 @@
 package com.example.glossaryofindustry.container;
 
-public interface WebRequestForm {
+import org.springframework.stereotype.Component;
+
+@Component
+public abstract class WebRequestForm {
 
 }

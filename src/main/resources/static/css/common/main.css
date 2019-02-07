@@ -1,0 +1,50 @@
+body {
+    background-color: rgb(255, 255, 255);
+}
+
+.bg-contentsbox {
+}
+.bg-contents {
+    background-color: #c9e4e7;
+}
+.bg-font {
+    background-color: #472836;
+}
+.bg-menu {
+}
+
+header.header {
+    padding: 2em;
+}
+
+.main {
+    display: table;
+    width: 100%;
+    min-height: 800px;
+}
+
+div#menu {
+    display: table-cell;
+    width: 10%;
+    vertical-align: top;
+    height: 100%;
+    border-right: double thick black;
+    
+}
+
+
+
+
+div.search {
+  padding: 2em;
+}
+
+
+
+section#contents-box {
+    width: 80%;
+    text-align: center;
+    display: table-cell;
+}
+
+

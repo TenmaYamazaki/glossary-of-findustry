@@ -1,54 +1,59 @@
 package com.example.glossaryofindustry.controllers;
 
 import java.lang.reflect.Method;
-import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.glossaryofindustry.container.WebRequestForm;
 import com.example.glossaryofindustry.container.WebResponseResult;
 import com.example.glossaryofindustry.controllers.receiver.WebReceiver;
-import com.example.glossaryofindustry.domains.Users;
-import com.example.glossaryofindustry.mappers.UsersMapper;
 
 @Controller
 public class ApplicationController {
 
     @Autowired
-    private UsersMapper usersMapper;
+    private Map<String, WebReceiver> receiverMap;
 
-    @GetMapping("/")
-    public String index(Model model) {
-        List<Users> users = usersMapper.all();
-        model.addAttribute("users", users);
-        return "index";
+    private WebReceiver receiver;
+
+    @ModelAttribute
+    public WebRequestForm generateRequestForm(@PathVariable String className) throws Exception {
+        // receiverを初期化する
+        receiver = receiverMap.get(className + "Receiver");
+        // requestFormを初期化する
+        String requestFormName = className.substring(0, 1).toUpperCase() + className.substring(1);
+        String strRequestForm = "com.example.glossaryofindustry.container.requestform." + requestFormName
+                + "RequestForm";
+        Class<?> requestClss = Class.forName(strRequestForm);
+        WebRequestForm requestForm = (WebRequestForm) requestClss.newInstance();
+        return requestForm;
+    }
+
+    @GetMapping("/{className}")
+    public String index(@PathVariable String className, Model model) throws Exception {
+        Method method = receiver.getClass().getMethod("init");
+        WebResponseResult<?> result = (WebResponseResult<?>) method.invoke(receiver);
+        model.addAttribute("form", result.getResponseForm());
+        return result.getTemplateName();
     }
 
     @PostMapping("/{className}/{methodName}")
-    @ResponseBody
-    public String terminology(Model model, @PathVariable String className, @PathVariable String methodName)
-            throws Exception {
-        WebResponseResult result;
-        // リクエストフォームを初期化する
-        String strRequestForm = className + "RequestForm";
-        Class requestClss = Class.forName(strRequestForm);
-        WebRequestForm requestForm = (WebRequestForm) requestClss.newInstance();
-        // レシーバーを初期化する
-        Class receiverClass = Class.forName(className);
-        WebReceiver receiver = (WebReceiver) receiverClass.newInstance();
-        // メソッドを実行する
-        Method method = receiver.getClass().getMethod(methodName, new Class[] { WebRequestForm.class });
-        result = (WebResponseResult) method.invoke(receiver, requestForm);
+    public String terminology(@ModelAttribute WebRequestForm requestForm, @PathVariable String className,
+            @PathVariable String methodName, Model model) throws Exception {
+        // methodを実行する
+        Method method = receiver.getClass().getMethod(methodName, new Class[] { requestForm.getClass() });
+        WebResponseResult<?> result = (WebResponseResult<?>) method.invoke(receiver, requestForm);
         model.addAttribute("form", result.getResponseForm());
         model.addAttribute("info", result.getInfoMessageList());
         model.addAttribute("err", result.getErrMessageList());
-        return result.getClassName();
+        return result.getTemplateName();
     }
 
 }

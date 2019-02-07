@@ -8,8 +8,8 @@ public class FieldsChildren extends DomainBase {
     private int fieldId;
     private String fieldChildName;
 
-    public FieldsChildren(String createUser, Date createDateTime, String updateUser, Date updateDateTime, int updateNo,
-            int fieldChildId, int fieldId, String fieldChildName) {
+    public FieldsChildren(int fieldChildId, int fieldId, String fieldChildName, String createUser, Date createDateTime,
+            String updateUser, Date updateDateTime, int updateNo) {
         super(createUser, createDateTime, updateUser, updateDateTime, updateNo);
         this.fieldChildId = fieldChildId;
         this.fieldId = fieldId;

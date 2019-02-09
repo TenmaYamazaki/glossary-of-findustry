@@ -28,12 +28,20 @@ public class WebResponseResult<T extends WebResponseForm> {
         this.infoMessageList = infoMessageList;
     }
 
+    public void addInfoMessage(String message) {
+        this.infoMessageList.add(message);
+    }
+
     public List<String> getErrMessageList() {
         return errMessageList;
     }
 
     public void setErrMessageList(List<String> errMessageList) {
         this.errMessageList = errMessageList;
+    }
+
+    public void addErrMessage(String message) {
+        this.errMessageList.add(message);
     }
 
     public String getTemplateName() {

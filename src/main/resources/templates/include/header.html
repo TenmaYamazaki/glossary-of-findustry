@@ -1,4 +1,8 @@
 
 <nav class="navbar sticky-top navbar-dark bg-primary">
-        <a class="navbar-brand" href="#!" th:text="名前なし"></a>
+        <a class="navbar-brand" href="#!" th:text="名無し�"></a>
+        <div id="user">
+            <p th:text="${form.userName}"></p>
+            <a th:href="@{/logout}">ログアウト</a>
+        </div>
 </nav>

@@ -47,4 +47,8 @@ section#contents-box {
     display: table-cell;
 }
 
+div#user {
+    float: right;
+    background-color: aliceblue;
+}
 

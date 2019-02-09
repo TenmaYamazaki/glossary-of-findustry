@@ -11,4 +11,41 @@
     <select id="all" resultMap="usersResultMap">
         SELECT * FROM users
     </select>
+    <insert id="createUser">
+        INSERT INTO users(
+            user_name,
+            pasword,
+            admin_flg
+        )
+        VALUES(
+        #{userName},
+        #{pasword},
+        FALSE
+        )
+    </insert>
+    <select id="findBySearchCondition" resultMap="usersResultMap">
+        SELECT
+            *
+        FROM
+            users
+        <where>
+            <if test="searchCondition.idList.size() > 0">
+                <foreach item="id" index="index" collection="searchCondition.idList" open="(" separator="," close=")">
+                    user_id IN #{searchCondition.idList}
+                </foreach>
+            </if>
+            <if test="searchCondition.userName != null">
+                AND
+                    user_name = #{searchCondition.userName}
+            </if>
+            <if test="searchCondition.pasword != null">
+                AND
+                    pasword = #{searchCondition.pasword}
+            </if>
+            <if test="searchCondition.adminFlg != null">
+                AND
+                    admin_flg = #{searchCondition.adminFlg}
+            </if>
+        </where>
+    </select>
 </mapper>

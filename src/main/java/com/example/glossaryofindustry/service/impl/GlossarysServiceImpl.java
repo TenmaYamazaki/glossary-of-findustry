@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.glossaryofindustry.container.SessionBean;
 import com.example.glossaryofindustry.container.searchcondition.GlossarysSearchCondition;
 import com.example.glossaryofindustry.domains.Glossarys;
 import com.example.glossaryofindustry.mappers.GlossarysMapper;
@@ -15,6 +16,8 @@ public class GlossarysServiceImpl implements GlossarysService {
 
     @Autowired
     private GlossarysMapper glossarysMapper;
+    @Autowired
+    SessionBean session;
 
     @Override
     public List<Glossarys> findBySearchCondition(GlossarysSearchCondition searchCondition) {
@@ -24,7 +27,7 @@ public class GlossarysServiceImpl implements GlossarysService {
 
     @Override
     public void addGlossarys(int fieldChildId, String terminology, String desc) {
-        glossarysMapper.addGlossarys(fieldChildId, terminology, desc);
+        glossarysMapper.addGlossarys(fieldChildId, terminology, desc, session.getUserName());
 
     }
 

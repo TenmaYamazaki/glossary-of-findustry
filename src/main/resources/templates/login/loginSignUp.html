@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>ログイン</title>
+        <link href="../../static/css/common/main.css" th:href="@{/css/common/main.css}" rel="stylesheet" />
+        <link href="../../static/css/login/loginindex.css" th:href="@{/css/login/loginindex.css}" rel="stylesheet" />
+        <link th:replace="include/bootstrap"></link>
+        <script type="text/javascript" src="../../static/script/js/pages/login/login.js" th:src="@{/script/js/pages/login/login.js}"></script>
+    </head>
+    <body>
+        <div id="header" th:replace="include/header"></div>
+        <div class="main">
+            <div id="menu" th:include="include/menu"></div>
+            <section id="loginForm">
+					<div th:replace="include/message"></div>
+                    <div class="card">
+						<div class="card-body">
+							<h4 class="card-title">ユーザー登録</h4>
+							<h6 class="card-subtitle mb-2 text-muted">ユーザー名を入力してください</h6>
+							<form class="panel" th:action="@{/login/register}" method="POST">
+								<div class="userName">
+									<input name="userName" type="text" class="form-control">
+								</div>
+								<h6 class="card-subtitle mb-2 text-muted">パターンを決めてください</h6>
+								<h6 class="card-subtitle mb-2 text-muted">カーソルでパネルに順番に触れてください</h6>
+								<div class="pasword">
+									<input class="btn number stil" type="button" value="" data-char="7">
+									<input class="btn number stil" type="button" value="" data-char="6">
+									<input class="btn number stil" type="button" value="" data-char="3">
+									<input class="btn number stil" type="button" value="" data-char="9">
+									<input class="btn number stil" type="button" value="" data-char="1">
+									<input class="btn number stil" type="button" value="" data-char="4">
+									<input class="btn number stil" type="button" value="" data-char="8">
+									<input class="btn number stil" type="button" value="" data-char="2">
+									<input class="btn number stil" type="button" value="" data-char="5">
+									<div>
+										<input id="pas" name="pasword" type="hidden" value="">
+										<button type="submit" class="btn btn-warning">登録</button>
+									</div>
+									<p class="btn btn-info reset">パターンリセット</p>
+								</div>
+							</form>
+						</div>
+					</div>    
+				</section>
+        </div>
+    </body>
+</html>

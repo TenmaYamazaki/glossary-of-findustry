@@ -57,7 +57,7 @@
         #{fieldChildId},
         #{terminology},
         #{desc},
-        'unknwon',
+        #{createUser},
         FALSE,
         1
         )

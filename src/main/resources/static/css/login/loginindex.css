@@ -1,0 +1,56 @@
+@charset "UTF-8";
+div.main {
+	text-align: center;
+}
+section#loginForm {
+	text-align: center;
+	width: 50%;
+	display: inline-block;
+}
+div.card {
+	margin-top: 30px;
+}
+div.userName {
+	display: inline-block;
+	margin-bottom: 20px;
+}
+div.pasword {
+	text-align: center;
+	display: inline-block;
+}
+input.btn {
+    display: inline-block;
+    text-decoration: none;
+    color: #FFF;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    border-radius: 20%;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    background: linear-gradient(60deg, #709dff 0%, #91fdb7 100%);
+    transition: .4s;
+}
+form.panel {
+  text-align: center;
+  width: 500px;
+  display: inline-block;
+}
+input.btn {
+	margin: 30px;
+    font-size: 2em;
+}
+form.panel input.btn:hover{
+    transform: rotate(720deg);
+}
+div.content {
+   display: inline-block;
+   width: 32%;
+}
+.right {
+	float: right;
+}
+p.reset {
+  float: right;
+}

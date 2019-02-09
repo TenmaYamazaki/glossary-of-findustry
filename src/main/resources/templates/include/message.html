@@ -1,0 +1,11 @@
+<div class="message" th:unless='${info.isEmpty()}' style="padding-top: 20px">
+	<div class="alert alert-success" role="alert" th:each="message : ${info}">
+		<strong>success</strong> <span th:text="${message}"></span>
+	</div>
+</div>
+<div class="message" th:unless='${err.isEmpty()}' style="padding-top: 20px">
+		<div class="alert alert-danger" role="alert" th:each="message : ${err}">
+			<strong>error</strong>
+			<span th:text="${message}"></span>
+		</div>
+</div>

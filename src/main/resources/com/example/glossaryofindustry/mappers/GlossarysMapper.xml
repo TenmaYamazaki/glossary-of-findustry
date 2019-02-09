@@ -41,6 +41,8 @@
                     field_child_div = #{searchCondition.fieldChildDiv}
             </if>
         </where>
+        ORDER BY
+            terminology
     </select>
     <insert id="addGlossarys">
         INSERT INTO glossarys(

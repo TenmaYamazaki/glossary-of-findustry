@@ -13,5 +13,8 @@
     </resultMap>
     <select id="all" resultMap="fieldsChildrenResultMap">
         SELECT * FROM fields_children
+        ORDER BY
+            field_id,
+            field_child_name
     </select>
 </mapper>

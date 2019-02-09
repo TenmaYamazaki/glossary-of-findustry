@@ -52,6 +52,8 @@ public class ApplicationController {
             LoginResponseForm responseForm = new LoginResponseForm();
             responseForm.setUserName(session.getUserName());
             model.addAttribute("form", responseForm);
+            model.addAttribute("info", new ArrayList<>());
+            model.addAttribute("err", new ArrayList<>());
             return "login/loginIndex";
         }
         if (!className.equals("login")) {

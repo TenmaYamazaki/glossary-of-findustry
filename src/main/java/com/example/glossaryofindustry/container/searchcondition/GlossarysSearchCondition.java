@@ -13,9 +13,7 @@ public class GlossarysSearchCondition {
     /** 用語 */
     private String terminology;
     /** 分野区分 */
-    private int fieldDiv;
-    /** 分野子区分 */
-    private int fieldChildDiv;
+    private int fieldId;
 
     public List<Glossarys> getIdList() {
         return idList;
@@ -41,20 +39,12 @@ public class GlossarysSearchCondition {
         this.terminology = terminology;
     }
 
-    public int getFieldDiv() {
-        return fieldDiv;
+    public int getFieldId() {
+        return fieldId;
     }
 
-    public void setFieldDiv(int fieldDiv) {
-        this.fieldDiv = fieldDiv;
-    }
-
-    public int getFieldChildDiv() {
-        return fieldChildDiv;
-    }
-
-    public void setFieldChildDiv(int fieldChildDiv) {
-        this.fieldChildDiv = fieldChildDiv;
+    public void setFieldId(int fieldId) {
+        this.fieldId = fieldId;
     }
 
 }

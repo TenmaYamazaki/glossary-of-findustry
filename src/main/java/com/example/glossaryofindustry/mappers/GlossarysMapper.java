@@ -26,5 +26,5 @@ public interface GlossarysMapper {
      */
     public List<Glossarys> findBySearchCondition(@Param("searchCondition") GlossarysSearchCondition searchCondition);
 
-    public void addGlossarys(int fieldChildId, String terminology, String desc, String createUser);
+    public void addGlossarys(int fieldId, String terminology, String desc, String createUser);
 }

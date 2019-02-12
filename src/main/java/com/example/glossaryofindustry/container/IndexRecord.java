@@ -2,11 +2,19 @@ package com.example.glossaryofindustry.container;
 
 public class IndexRecord {
 
+    public int fieldId;
+
     public String fieldName;
 
-    public String fieldChildName;
+    public String fieldGenre;
 
-    public String fieldChildId;
+    public int getFieldId() {
+        return fieldId;
+    }
+
+    public void setFieldId(int fieldId) {
+        this.fieldId = fieldId;
+    }
 
     public String getFieldName() {
         return fieldName;
@@ -16,20 +24,12 @@ public class IndexRecord {
         this.fieldName = fieldName;
     }
 
-    public String getFieldChildName() {
-        return fieldChildName;
+    public String getFieldGenre() {
+        return fieldGenre;
     }
 
-    public void setFieldChildName(String fieldChildName) {
-        this.fieldChildName = fieldChildName;
-    }
-
-    public String getFieldChildId() {
-        return fieldChildId;
-    }
-
-    public void setFieldChildId(String fieldChildId) {
-        this.fieldChildId = fieldChildId;
+    public void setFieldGenre(String fieldGenre) {
+        this.fieldGenre = fieldGenre;
     }
 
 }

@@ -5,13 +5,15 @@ import java.sql.Date;
 public class Fields extends DomainBase {
 
     private int fieldId;
-    private String fieldName;
+    private String fieldName;;
+    private String fieldGenre;
 
-    public Fields(int fieldId, String fieldName, String createUser, Date createDateTime, String updateUser,
-            Date updateDateTime, int updateNo) {
+    public Fields(int fieldId, String fieldName, String fieldGenre, String createUser, Date createDateTime,
+            String updateUser, Date updateDateTime, int updateNo) {
         super(createUser, createDateTime, updateUser, updateDateTime, updateNo);
         this.fieldId = fieldId;
         this.fieldName = fieldName;
+        this.fieldGenre = fieldGenre;
     }
 
     public int getFieldId() {
@@ -28,6 +30,14 @@ public class Fields extends DomainBase {
 
     public void setFieldName(String fieldName) {
         this.fieldName = fieldName;
+    }
+
+    public String getFieldGenre() {
+        return fieldGenre;
+    }
+
+    public void setFieldGenre(String fieldGenre) {
+        this.fieldGenre = fieldGenre;
     }
 
 }

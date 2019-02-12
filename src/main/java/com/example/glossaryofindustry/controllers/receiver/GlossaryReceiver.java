@@ -15,7 +15,6 @@ import com.example.glossaryofindustry.container.requestform.GlossaryRequestForm;
 import com.example.glossaryofindustry.container.responseform.GlossaryResponseForm;
 import com.example.glossaryofindustry.container.searchcondition.GlossarysSearchCondition;
 import com.example.glossaryofindustry.domains.Fields;
-import com.example.glossaryofindustry.domains.FieldsChildren;
 import com.example.glossaryofindustry.domains.Glossarys;
 import com.example.glossaryofindustry.service.FieldDivService;
 import com.example.glossaryofindustry.service.GlossarysService;
@@ -36,18 +35,10 @@ public class GlossaryReceiver implements WebReceiver {
         GlossaryResponseForm responseForm = new GlossaryResponseForm();
 
         List<Fields> fieldList = fieldDivService.searchAllFields();
-        List<FieldsChildren> fieldsChildrenList = fieldDivService.searchAllFieldsChildren();
-
-        for (FieldsChildren fieldsChildren : fieldsChildrenList) {
+        for (Fields fields : fieldList) {
             IndexRecord record = new IndexRecord();
-            for (Fields fields : fieldList) {
-                if (fields.getFieldId() == fieldsChildren.getFieldId()) {
-                    record.setFieldChildName(fieldsChildren.getFieldChildName());
-                    record.setFieldName(fields.getFieldName());
-                    record.setFieldChildId(String.valueOf(fieldsChildren.getFieldChildId()));
-                    break;
-                }
-            }
+            record.setFieldGenre(fields.getFieldGenre());
+            record.setFieldName(fields.getFieldName());
             responseForm.addIndexRecordList(record);
         }
         result.setTemplateName("glossaryIndex");
@@ -60,7 +51,7 @@ public class GlossaryReceiver implements WebReceiver {
         GlossaryResponseForm responseForm = new GlossaryResponseForm();
 
         GlossarysSearchCondition searchCondition = new GlossarysSearchCondition();
-        searchCondition.setFieldChildDiv(Integer.parseInt(requestForm.getFieldChildId()));
+        searchCondition.setFieldId(Integer.parseInt(requestForm.getFieldId()));
         List<Glossarys> glossarysList = glossarysService.findBySearchCondition(searchCondition);
 
         for (Glossarys glossarys : glossarysList) {
@@ -78,8 +69,8 @@ public class GlossaryReceiver implements WebReceiver {
 
     public WebResponseResult<GlossaryResponseForm> add(GlossaryRequestForm requestForm) {
         GlossaryRequestForm searchRequestForm = (GlossaryRequestForm) session.getAttribute("reqSearch");
-        glossarysService.addGlossarys(Integer.parseInt(searchRequestForm.getFieldChildId()),
-                requestForm.getAddTerminology(), requestForm.getAddDesc());
+        glossarysService.addGlossarys(Integer.parseInt(searchRequestForm.getFieldId()), requestForm.getAddTerminology(),
+                requestForm.getAddDesc());
         return this.search(searchRequestForm);
     }
 }

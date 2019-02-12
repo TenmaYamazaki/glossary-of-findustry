@@ -4,19 +4,19 @@ import com.example.glossaryofindustry.container.WebRequestForm;
 
 public class GlossaryRequestForm extends WebRequestForm {
 
-    /** 分野子区分 */
-    private String fieldChildId;
+    /** 分野区分 */
+    private String fieldId;
     /** 入力された用語名 */
     private String addTerminology;
     /** 入力された説明 */
     private String addDesc;
 
-    public String getFieldChildId() {
-        return fieldChildId;
+    public String getFieldId() {
+        return fieldId;
     }
 
-    public void setFieldChildId(String fieldChildId) {
-        this.fieldChildId = fieldChildId;
+    public void setFieldId(String fieldId) {
+        this.fieldId = fieldId;
     }
 
     public String getAddTerminology() {

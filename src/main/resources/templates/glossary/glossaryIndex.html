@@ -14,8 +14,8 @@
             <section id="contents-box bg-contentsbox">
                 <div class="content field" th:each="record : ${form.getIndexRecordList()}">
                     <form class="field" th:action="@{/glossary/search}" method="POST">
-                        <input type="hidden" name="fieldChildId" th:value="${record.getFieldChildId()}">
-                        <input class="btn" type="submit" th:value="${record.getFieldName()} + ' - ' + ${record.getFieldChildName()}">
+                        <input type="hidden" name="fieldId" th:value="${record.getFieldId()}">
+                        <input class="btn" type="submit" th:value="${record.getFieldGenre()} + ' - ' + ${record.getFieldName()}">
                     </form>
                 </div>
             </section>

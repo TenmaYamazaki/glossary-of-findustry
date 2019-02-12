@@ -3,7 +3,6 @@ package com.example.glossaryofindustry.service;
 import java.util.List;
 
 import com.example.glossaryofindustry.domains.Fields;
-import com.example.glossaryofindustry.domains.FieldsChildren;
 
 public interface FieldDivService {
 
@@ -14,10 +13,4 @@ public interface FieldDivService {
      */
     public List<Fields> searchAllFields();
 
-    /**
-     * すべての分野子区分を取得する
-     * 
-     * @return 分野子区分
-     */
-    public List<FieldsChildren> searchAllFieldsChildren();
 }

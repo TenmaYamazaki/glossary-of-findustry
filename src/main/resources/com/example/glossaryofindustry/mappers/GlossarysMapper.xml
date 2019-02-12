@@ -4,8 +4,7 @@
     <resultMap type="com.example.glossaryofindustry.domains.Glossarys" id="glossarysResultMap">
         <result property="glossaryId" column="glossary_id" />
         <result property="terminology" column="terminology" />
-        <result property="fieldDiv" column="field_div" />
-        <result property="fieldChildDiv" column="field_child_div" />
+        <result property="fieldId" column="field_Id" />
         <result property="wordDescription" column="word_description" />
         <result property="comentFlg" column="coment_flg" />
         <result property="createUser" column="create_user" />
@@ -32,13 +31,9 @@
                 AND
                     terminology = #{searchCondition.terminology}
             </if>
-            <if test="searchCondition.fieldDiv != 0">
+            <if test="searchCondition.fieldId != 0">
                 AND
-                    field_div = #{searchCondition.fieldDiv}
-            </if>
-            <if test="searchCondition.fieldChildDiv != 0">
-                AND
-                    field_child_div = #{searchCondition.fieldChildDiv}
+                    field_Id = #{searchCondition.fieldId}
             </if>
         </where>
         ORDER BY
@@ -46,8 +41,7 @@
     </select>
     <insert id="addGlossarys">
         INSERT INTO glossarys(
-            field_div,
-            field_child_div,
+            field_id,
             terminology,
             word_description,
             create_user,
@@ -55,8 +49,7 @@
             update_no
         ) 
         VALUES(
-        1,
-        #{fieldChildId},
+        #{fieldId},
         #{terminology},
         #{desc},
         #{createUser},

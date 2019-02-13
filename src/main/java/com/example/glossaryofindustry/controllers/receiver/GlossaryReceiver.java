@@ -39,6 +39,7 @@ public class GlossaryReceiver implements WebReceiver {
             IndexRecord record = new IndexRecord();
             record.setFieldGenre(fields.getFieldGenre());
             record.setFieldName(fields.getFieldName());
+            record.setFieldId(fields.getFieldId());
             responseForm.addIndexRecordList(record);
         }
         result.setTemplateName("glossaryIndex");

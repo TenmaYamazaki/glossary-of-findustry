@@ -20,5 +20,4 @@ public class FieldDivSearviceImpl implements FieldDivService {
         List<Fields> fieldList = fieldsMapper.all();
         return fieldList;
     }
-
 }

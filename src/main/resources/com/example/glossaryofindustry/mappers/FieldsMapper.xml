@@ -13,5 +13,6 @@
     </resultMap>
     <select id="all" resultMap="FieldsResultMap">
         SELECT * FROM fields
+        ORDER BY field_Genre
     </select>
 </mapper>

@@ -22,5 +22,5 @@ public interface GlossarysService {
      * @param terminology
      * @param desc
      */
-    public void addGlossarys(int fieldChild, String terminology, String desc);
+    public void addGlossarys(int fieldId, String terminology, String desc);
 }

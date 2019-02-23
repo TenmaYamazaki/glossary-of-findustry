@@ -3,28 +3,28 @@ package com.example.glossaryofindustry.container.responseform;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.glossaryofindustry.container.IndexRecord;
 import com.example.glossaryofindustry.container.WebResponseForm;
 import com.example.glossaryofindustry.container.record.GlossarysRecord;
+import com.example.glossaryofindustry.domains.Fields;
 
 public class GlossaryResponseForm extends WebResponseForm {
 
-    /** 初期表示レコードリスト */
-    private List<IndexRecord> indexRecordList = new ArrayList<>();
+    /** フィールドリスト */
+    private List<Fields> fieldList = new ArrayList<>();
 
     /** レコードリスト */
     private List<GlossarysRecord> recordList = new ArrayList<>();
 
-    public List<IndexRecord> getIndexRecordList() {
-        return indexRecordList;
+    public List<Fields> getFieldList() {
+        return fieldList;
     }
 
-    public void setIndexRecordList(List<IndexRecord> indexRecordList) {
-        this.indexRecordList = indexRecordList;
+    public void setFieldList(List<Fields> fieldList) {
+        this.fieldList = fieldList;
     }
 
-    public void addIndexRecordList(IndexRecord indexRecord) {
-        this.indexRecordList.add(indexRecord);
+    public void addFieldList(Fields field) {
+        this.fieldList.add(field);
     }
 
     public List<GlossarysRecord> getRecordList() {

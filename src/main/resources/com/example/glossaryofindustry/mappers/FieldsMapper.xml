@@ -4,6 +4,7 @@
     <resultMap type="com.example.glossaryofindustry.domains.Fields" id="FieldsResultMap">
         <result property="fieldId" column="field_id" />
         <result property="fieldName" column="field_name" />
+        <result property="fieldGenre" column="field_genre" />
         <result property="createUser" column="create_user" />
         <result property="createDateTime" column="create_date_time" />
         <result property="updateUser" column="update_user" />

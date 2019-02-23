@@ -6,19 +6,16 @@ public class Glossarys extends DomainBase {
 
     private int glossaryId;
     private String terminology;
-    private int fieldDiv;
-    private int fieldChildDiv;
+    private int fieldId;
     private String wordDescription;
     private Boolean comentFlg;
 
-    public Glossarys(int glossaryId, String terminology, int fieldDiv, int fieldChildDiv, String wordDescription,
-            Boolean comentFlg, String createUser, Date createDateTime, String updateUser, Date updateDateTime,
-            int updateNo) {
+    public Glossarys(int glossaryId, String terminology, int fieldId, String wordDescription, Boolean comentFlg,
+            String createUser, Date createDateTime, String updateUser, Date updateDateTime, int updateNo) {
         super(createUser, createDateTime, updateUser, updateDateTime, updateNo);
         this.glossaryId = glossaryId;
         this.terminology = terminology;
-        this.fieldDiv = fieldDiv;
-        this.fieldChildDiv = fieldChildDiv;
+        this.fieldId = fieldId;
         this.wordDescription = wordDescription;
         this.comentFlg = comentFlg;
     }
@@ -39,20 +36,12 @@ public class Glossarys extends DomainBase {
         this.terminology = terminology;
     }
 
-    public int getFieldDiv() {
-        return fieldDiv;
+    public int getFieldId() {
+        return fieldId;
     }
 
-    public void setFieldDiv(int fieldDiv) {
-        this.fieldDiv = fieldDiv;
-    }
-
-    public int getFieldChildDiv() {
-        return fieldChildDiv;
-    }
-
-    public void setFieldChildDiv(int fieldChildDiv) {
-        this.fieldChildDiv = fieldChildDiv;
+    public void setFieldId(int fieldId) {
+        this.fieldId = fieldId;
     }
 
     public String getWordDescription() {

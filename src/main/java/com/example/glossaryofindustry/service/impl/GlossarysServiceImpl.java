@@ -26,8 +26,8 @@ public class GlossarysServiceImpl implements GlossarysService {
     }
 
     @Override
-    public void addGlossarys(int fieldChildId, String terminology, String desc) {
-        glossarysMapper.addGlossarys(fieldChildId, terminology, desc, session.getUserName());
+    public void addGlossarys(int fieldId, String terminology, String desc) {
+        glossarysMapper.addGlossarys(fieldId, terminology, desc, session.getUserName());
 
     }
 

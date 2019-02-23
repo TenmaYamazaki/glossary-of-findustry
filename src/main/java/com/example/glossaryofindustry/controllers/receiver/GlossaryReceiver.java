@@ -32,7 +32,6 @@ public class GlossaryReceiver implements WebReceiver {
     public WebResponseResult<GlossaryResponseForm> init() {
         WebResponseResult<GlossaryResponseForm> result = new WebResponseResult<>();
         GlossaryResponseForm responseForm = new GlossaryResponseForm();
-
         List<Fields> fieldList = fieldDivService.searchAllFields();
         responseForm.setFieldList(fieldList);
         result.setTemplateName("glossaryIndex");

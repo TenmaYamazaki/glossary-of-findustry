@@ -13,6 +13,7 @@
         <div class="main">
             <div id="menu" th:include="include/menu"></div>
               <section class="contents-box bg-contentsbox">
+              <div th:replace="include/message"></div>
                   <form class="" th:action="@{/glossary/add}" method="POST">
                   <table class="table">
                     <thead>

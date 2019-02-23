@@ -62,6 +62,11 @@ public class GlossaryReceiver implements WebReceiver {
 
     public WebResponseResult<GlossaryResponseForm> add(GlossaryRequestForm requestForm) {
         GlossaryRequestForm searchRequestForm = (GlossaryRequestForm) session.getAttribute("reqSearch");
+        if (requestForm.getAddTerminology().equals("") || requestForm.getAddTerminology().equals("")) {
+            WebResponseResult<GlossaryResponseForm> result = this.search(searchRequestForm);
+            result.addErrMessage("用語と説明を入力してください");
+            return result;
+        }
         glossarysService.addGlossarys(Integer.parseInt(searchRequestForm.getFieldId()), requestForm.getAddTerminology(),
                 requestForm.getAddDesc());
         return this.search(searchRequestForm);
